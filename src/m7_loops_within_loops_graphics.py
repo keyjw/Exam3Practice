@@ -29,6 +29,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 ########################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -88,23 +89,38 @@ def hourglass(window, n, point, radius, color):
     where n and radius are positive and color is a string that denotes
     a color that rosegraphics understands.
     """
-    original_point = point
-    center = point
-    delta_y = 2 * radius
-    delta_x = 2 * radius
+    original_x = point.x
+    original_y = point.y
+    x = point.x
+    y = point.y
+    delta_x = radius
     for k in range(n):
         for s in range(k + 1):
-            circle = rg.Circle(center, radius)
+            circle = rg.Circle(rg.Point(x, y), radius)
             circle.fill_color = color
             circle.attach_to(window)
-            center.x += delta_x
-        center.y -= delta_y
-        center.x = original_point.x - (1.5 * delta_x * (k + 1))
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            line.attach_to(window)
+            x += 2 * delta_x
+        y -= radius * math.sqrt(3)
+        x = original_x - (delta_x * (k + 1))
+    x = original_x
+    y = original_y
+    for k in range(n):
+        for s in range(k + 1):
+            circle1 = rg.Circle(rg.Point(x, y), radius)
+            circle1.fill_color = color
+            circle1.attach_to(window)
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            line.attach_to(window)
+            x += 2 * delta_x
+        y += radius * math.sqrt(3)
+        x = original_x - (delta_x * (k + 1))
     window.render()
 
 
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
