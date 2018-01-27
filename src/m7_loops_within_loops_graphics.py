@@ -34,8 +34,8 @@ import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_hourglass()
-    # run_test_many_hourglasses()
+    # run_test_hourglass()
+    run_test_many_hourglasses()
 
 
 def run_test_hourglass():
@@ -118,7 +118,6 @@ def hourglass(window, n, point, radius, color):
         x = original_x - (delta_x * (k + 1))
     window.render()
 
-
     # ------------------------------------------------------------------
     # DONE: 2. Implement and test this function.
     #       We provided some tests for you (above).
@@ -193,6 +192,9 @@ def many_hourglasses(window, square, m, colors):
     where m is positive and colors is a sequence of strings,
     each of which denotes a color that rosegraphics understands.
     """
+    for k in range(m):
+        pass
+    window.render()
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #       We provided some tests for you (above).
