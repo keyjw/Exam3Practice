@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Joshua Key.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -119,6 +119,12 @@ def run_test_practice_problem3():
                                     - math.sqrt(2) - 0.00000000001],
                                    big_list))
 
+    # Test 15:
+    actual = practice_problem3,[-2, 2, 1.3], [1, 7]
+
+    # Test 16:
+    actual = practice_problem3, [-2, 2, 1.3], [1, 7]
+
     # ------------------------------------------------------------------
     # Run the 14 tests in the   tests   list constructed above.
     # ------------------------------------------------------------------
@@ -207,6 +213,15 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    count = 0
+    list = []
+    for k in range(999999):
+        if math.sin(start + k) + math.cos(start + k) > threshold:
+            list += [start + k]
+            count += 1
+        if count == n:
+            return list
+    return []
     ####################################################################
     # TODO: 3. Implement and test this function.
     #          Some tests are already written for you (above),
