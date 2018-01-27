@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -119,16 +119,24 @@ def run_test_practice_problem3():
                                     - math.sqrt(2) - 0.00000000001],
                                    big_list))
 
-    # Test 15:
-    actual = practice_problem3,[-2, 2, 1.3], [1, 7]
-
-    # Test 16:
-    actual = practice_problem3, [-2, 2, 1.3], [1, 7]
-
     # ------------------------------------------------------------------
     # Run the 14 tests in the   tests   list constructed above.
     # ------------------------------------------------------------------
     st.SimpleTestCase.run_tests('practice_problem3', tests)
+
+    # Test 15:
+    print()
+    expected = []
+    actual = practice_problem3(-5, 1, 2)
+    print('Expected: ', expected)
+    print('Actual: ', actual)
+
+    # Test 15:
+    print()
+    expected = [-5, -4, 0, 1, 2]
+    actual = practice_problem3(-5, 5, 0)
+    print('Expected: ', expected)
+    print('Actual: ', actual)
 
     ####################################################################
     # TO DO 2 continued:  More tests:
@@ -215,6 +223,7 @@ def practice_problem3(start, n, threshold):
     """
     count = 0
     list = []
+
     for k in range(999999):
         if math.sin(start + k) + math.cos(start + k) > threshold:
             list += [start + k]
@@ -223,7 +232,7 @@ def practice_problem3(start, n, threshold):
             return list
     return []
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
