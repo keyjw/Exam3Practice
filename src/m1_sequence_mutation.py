@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Joshua Key.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -35,6 +35,24 @@ def run_test_zero_changer():
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    test1 = ([0, 0, 32, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [1, 2, 3, 4, 5, 6, 8, 9])
+    expected1 = ([1, 2, 32, 4, 3, 4, 5], [6, 7, 8, 9, 10, 11, 12], [1, 2, 3, 4, 5, 6, 8, 9])
+    zero_changer(test1)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 1:
+    test1 = ([1, 2, 3, 4, 5, 6], [34, 56, 87, 5], [3], [44, 11, 33])
+    expected1 = ([1, 2, 3, 4, 5, 6], [34, 56, 87, 5], [3], [44, 11, 33])
+    zero_changer(test1)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
 
 def zero_changer(tuple_of_lists):
     """
@@ -60,8 +78,15 @@ def zero_changer(tuple_of_lists):
     Type hints:
       :type tuple_of_lists: tuple of list[int]
     """
+    count = 0
+    for k in range(len(tuple_of_lists)):
+        list = tuple_of_lists[k]
+        for s in range(len(list)):
+            if list[s] == 0:
+                list[s] = 1 + count
+                count += 1
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
