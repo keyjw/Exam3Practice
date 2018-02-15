@@ -217,7 +217,7 @@ def many_hourglasses(window, square, m, colors):
         y2 = center.y - (radius * math.sqrt(3) * (k + 1)) - radius
     window.render()
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
